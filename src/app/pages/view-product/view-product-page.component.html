@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Product
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="product">
+  <ion-card class="ion-no-margin">
+    <div class="image-content">
+      <img alt="" class="img" src="{{product.image}}"/>
+    </div>
+    <ion-card-header>
+      <ion-card-title>{{product.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{product.description}}
+      ${{product.price}}
+    </ion-card-content>
+    <div class="controls">
+      <ion-button (click)="setAmount(100)" color="primary">
+        $100
+      </ion-button>
+      <ion-button (click)="setAmount(10)" color="primary">
+        $10
+      </ion-button>
+      <ion-button (click)="setQty(2)" color="primary">
+        2 qty
+      </ion-button>
+      <ion-button (click)="setQty(7)" color="primary">
+        7 qty
+      </ion-button>
+    </div>
+    <div class="form">
+      <div class="buttons">
+        <ion-item>
+          <ion-label position="stacked">Amount, $</ion-label>
+          <ion-input type="number" (keyup)="reCalcInput( true)" (change)="reCalc( true)" [(ngModel)]="amount"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Quantity</ion-label>
+          <ion-input type="number" (keyup)="reCalcInput( false)" (change)="reCalc( false)"  [(ngModel)]="qty"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+
+  </ion-card>
+
+</ion-content>

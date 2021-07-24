@@ -1,0 +1,11 @@
+<ion-item *ngIf="product" [routerLink]="'/product/' + product.sku" [detail]="false">
+  <ion-avatar slot="start">
+    <img src="{{product.image}}">
+  </ion-avatar>
+  <ion-label>
+    <h3>
+      {{ product.name }}
+    </h3>
+    <p>{{ product.description }}</p>
+  </ion-label>
+</ion-item>
